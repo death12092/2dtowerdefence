@@ -7,6 +7,7 @@ public class levelmanager : MonoBehaviour
     public levelmanager main;
 
     public Transform start;
+    public transform[] path;
 
     private void Awake()
     {
