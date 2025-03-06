@@ -11,6 +11,6 @@ public class levelmanager : MonoBehaviour
 
     private void Awake()
     {
-        main = this
+        main = this;
     }
 }
