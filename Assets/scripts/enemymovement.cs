@@ -7,7 +7,7 @@ using UnityEngine;
 public class enemymovement : MonoBehaviour
 {
     [Header("references")]
-    [SerializeField] private ridgidbody2D rb;
+    [SerializeField] private Rigidbody2D rb;
 
     [Header("attributes")]
     [SerializeField] private float movespeed = 2f;
@@ -20,18 +20,18 @@ public class enemymovement : MonoBehaviour
     private void Start()
     {
 
-        Target = levelmanager.main.path[pathindex];
+        target = levelmanager.main.path[pathindex];
 
     }
     private void Update()
     {
-        if (Vector2.Distance(Target.position, transform.postion) <= 0.1f){
+        if (Vector2.Distance(target.position, transform.position) <= 0.1f){
             pathindex++;
             
 
-                if (pathindex == levelmanager.main.path.length)
+                if (pathindex == levelmanager.main.path.Length)
                 {
-                destroy(gameobject);
+                Destroy(gameObject);
                 return;
                 }
             else
@@ -42,7 +42,7 @@ public class enemymovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        vector2 direction = (target.postion - transform.postion).normalized;
+        Vector2 direction = (target.position - this.transform.position).normalized;
 
         rb.velocity = direction * movespeed;
 

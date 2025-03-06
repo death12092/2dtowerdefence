@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class levelmanager : MonoBehaviour
 {
-    public levelmanager main;
+    public static levelmanager main;
 
     public Transform start;
-    public transform[] path;
+    public Transform[] path;
 
     private void Awake()
     {
