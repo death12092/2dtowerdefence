@@ -26,6 +26,7 @@ public class turret : MonoBehaviour
     }
     private void findtarget()
     {
+        Debug.Log("working");
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingrange, (Vector2)transform.position, 0f, enemymask);
         if (hits.Length > 0) { 
             target = hits[0].transform;
@@ -34,6 +35,7 @@ public class turret : MonoBehaviour
     }
     private void rotatetawardstarget()
     {
+        Debug.Log("working2");
         float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg;
         Quaternion targetrotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         rotationpoint.rotation = targetrotation;
