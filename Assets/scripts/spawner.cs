@@ -31,20 +31,24 @@ public class spawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Getstartwave());
+        StartCoroutine(startwave());
+        Debug.Log("works3");
     }
 
     private void Update()
     {
         if (!isspawning) {
-            return; 
+            Debug.Log("works7");
+            return;
+            
         }
-        timesincelastspawn = Time.deltaTime;
+        timesincelastspawn += Time.deltaTime;
         
         if (timesincelastspawn >= (1f / enemiespersec) && enemieslefttospawn > 0)
         {
             
             spawnenemy();
+            Debug.Log("works2");
             enemieslefttospawn--;
             enemiesalive++;
             timesincelastspawn = 0f;
@@ -59,10 +63,11 @@ public class spawner : MonoBehaviour
 
     private void endwave()
     {
+        Debug.Log("works6");
         isspawning = false;
         timesincelastspawn = 0f;
         currentwave++;
-        StartCoroutine(Getstartwave());
+        StartCoroutine(startwave());
     }
 
     private void spawnenemy()
@@ -77,10 +82,10 @@ public class spawner : MonoBehaviour
         enemiesalive--;
     }
 
-    private IEnumerable Getstartwave()
+    private IEnumerator startwave()
     {
         yield return new WaitForSeconds(timebetweenwaves);
-
+        Debug.Log("works4");
         isspawning = true;
         enemieslefttospawn = enemiesperwave();
 
@@ -88,6 +93,8 @@ public class spawner : MonoBehaviour
 
     private int enemiesperwave()
     {
+        Debug.Log("works5");
         return Mathf.RoundToInt(baseenemies * Mathf.Pow(currentwave,scalingfactor));
+        
     }
 }
