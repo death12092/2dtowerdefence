@@ -17,15 +17,19 @@ public class turret : MonoBehaviour
 
     private void Update()
     {
-        if (target == null) 
+        if (target == null)
         {
             findtarget();
             return;
         }
         rotatetawardstarget();
+        if (!checktargetisinrange())
+        {
+            target = null;
+        }
     }
-    private void findtarget()
-    {
+        private void findtarget()
+    { 
         Debug.Log("working");
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingrange, (Vector2)transform.position, 0f, enemymask);
         if (hits.Length > 0) { 
@@ -33,10 +37,15 @@ public class turret : MonoBehaviour
             
         }
     }
+
+    private bool checktargetisinrange()
+    {
+        return Vector2.Distance(target.position, transform.position) <= targetingrange;
+    }
     private void rotatetawardstarget()
     {
         Debug.Log("working2");
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         Quaternion targetrotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         rotationpoint.rotation = targetrotation;
     }
