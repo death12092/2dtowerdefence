@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -9,11 +7,15 @@ public class turret : MonoBehaviour
     [Header("references")]
     [SerializeField] private Transform rotationpoint;
     [SerializeField] private LayerMask enemymask;
+    [SerializeField] private GameObject bulleyprefab;
+    [SerializeField] private Transform fireingpoint;
     
     [Header("atribute")]
     [SerializeField] private float targetingrange = 5f;
+    [SerializeField] private float bps = 1f;
 
     private Transform target;
+    private float timeuntilfire;
 
     private void Update()
     {
@@ -27,8 +29,26 @@ public class turret : MonoBehaviour
         {
             target = null;
         }
+        else
+        {
+            timeuntilfire += Time.deltaTime;
+
+            if (timeuntilfire >= 1f / bps)
+            {
+                shoot();
+                timeuntilfire = 0f;
+            }
+        }
     }
-        private void findtarget()
+    private void shoot()
+    {
+        Debug.Log("shoot");
+        GameObject bulletobj = Instantiate(bulleyprefab, fireingpoint.position, Quaternion.identity);
+        Bullet bullet = bulletobj.GetComponent<Bullet>();
+        bullet.settarget(target);
+    }
+
+    private void findtarget()
     { 
         Debug.Log("working");
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingrange, (Vector2)transform.position, 0f, enemymask);
