@@ -101,7 +101,10 @@ MonoBehaviour:
   enemymask:
     serializedVersion: 2
     m_Bits: 64
+  bulleyprefab: {fileID: 0}
+  fireingpoint: {fileID: 0}
   targetingrange: 5
+  bps: 1
 --- !u!1 &2242837898509098999
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,4 +218,7 @@ MonoBehaviour:
   enemymask:
     serializedVersion: 2
     m_Bits: 64
+  bulleyprefab: {fileID: 8777828159226971181, guid: 8f2a2d74f96ca8446b3e6c71a2ce133f, type: 3}
+  fireingpoint: {fileID: 0}
   targetingrange: 5
+  bps: 1

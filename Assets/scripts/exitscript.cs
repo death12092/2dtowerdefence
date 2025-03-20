@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class exitscript : MonoBehaviour
 {
-    void doExitGame()
-    { Application.Quit(); }
+    private void OnMouseDown()
+    {
+        Application.Quit();
+    }
+     
 }

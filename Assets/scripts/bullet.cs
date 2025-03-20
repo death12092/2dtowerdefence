@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletscript : MonoBehaviour
+public class bullet : MonoBehaviour
 {
     private Transform target;
     [Header("references")]

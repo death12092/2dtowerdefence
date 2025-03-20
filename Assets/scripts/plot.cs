@@ -32,6 +32,6 @@ public class plot : MonoBehaviour
         }
 
         GameObject towertobuild = buildmanager.main.getselectedtower();
-        tower = Insantiate(towertobuild, transform.position, quaternion.identity);
+        tower = Instantiate(towertobuild, Transform.position , quaternion.identity);
     }
 }

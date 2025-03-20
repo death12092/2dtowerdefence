@@ -44,8 +44,8 @@ public class turret : MonoBehaviour
     {
         Debug.Log("shoot");
         GameObject bulletobj = Instantiate(bulleyprefab, fireingpoint.position, Quaternion.identity);
-        Bullet bullet = bulletobj.GetComponent<Bullet>();
-        bullet.settarget(target);
+        bullet bulletscript = bulletobj.GetComponent<bullet>();
+        bulletscript.settarget(target);
     }
 
     private void findtarget()
