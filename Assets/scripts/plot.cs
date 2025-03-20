@@ -18,20 +18,24 @@ public class plot : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        Debug.Log("hover");
         sr.color = hovercolor;
     }
     private void OnMouseExit()
     {
+        Debug.Log("no hover");
         sr.color = startcolor;
     }
     private void OnMouseDown()
     {
         if (tower != null)
         {
+            Debug.Log("no tower");
             return;
         }
 
+        Debug.Log("tower");
         GameObject towertobuild = buildmanager.main.getselectedtower();
-        tower = Instantiate(towertobuild, Transform.position , quaternion.identity);
+        tower = Instantiate(towertobuild, transform.position, quaternion.identity);
     }
 }

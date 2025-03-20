@@ -32,13 +32,13 @@ public class spawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine(startwave());
-        Debug.Log("works3");
+        
     }
 
     private void Update()
     {
         if (!isspawning) {
-            Debug.Log("works7");
+            
             return;
             
         }
@@ -48,7 +48,7 @@ public class spawner : MonoBehaviour
         {
             
             spawnenemy();
-            Debug.Log("works2");
+            
             enemieslefttospawn--;
             enemiesalive++;
             timesincelastspawn = 0f;
@@ -63,7 +63,7 @@ public class spawner : MonoBehaviour
 
     private void endwave()
     {
-        Debug.Log("works6");
+        
         isspawning = false;
         timesincelastspawn = 0f;
         currentwave++;
@@ -72,7 +72,7 @@ public class spawner : MonoBehaviour
 
     private void spawnenemy()
     {
-        Debug.Log("works");
+        
         GameObject prefabtospawn = enemyprefabs[0];
         Instantiate(prefabtospawn, levelmanager.main.start.position, Quaternion.identity);
     }
@@ -85,7 +85,7 @@ public class spawner : MonoBehaviour
     private IEnumerator startwave()
     {
         yield return new WaitForSeconds(timebetweenwaves);
-        Debug.Log("works4");
+        
         isspawning = true;
         enemieslefttospawn = enemiesperwave();
 
@@ -93,7 +93,7 @@ public class spawner : MonoBehaviour
 
     private int enemiesperwave()
     {
-        Debug.Log("works5");
+        
         return Mathf.RoundToInt(baseenemies * Mathf.Pow(currentwave,scalingfactor));
         
     }

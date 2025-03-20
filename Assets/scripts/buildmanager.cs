@@ -13,10 +13,12 @@ public class buildmanager : MonoBehaviour
     private void Awake()
     {
         main = this;
+        Debug.Log("building");
     }
 
     public GameObject getselectedtower()
     {
+        Debug.Log("selected tower");
         return towerprefabs[selectedtower];
     }
 }

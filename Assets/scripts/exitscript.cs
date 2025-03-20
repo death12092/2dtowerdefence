@@ -6,6 +6,7 @@ public class exitscript : MonoBehaviour
 {
     private void OnMouseDown()
     {
+        Debug.Log("exit");
         Application.Quit();
     }
      
