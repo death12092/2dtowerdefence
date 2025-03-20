@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c862150a8d4a54eaa10433b7d7ca3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 0}
-  hovercolor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0}
+  sr: {fileID: 2674797783530793065}
+  hovercolor: {r: 0.78823537, g: 0.13725491, b: 0.78823537, a: 1}
 --- !u!61 &9080932342592865740
 BoxCollider2D:
   m_ObjectHideFlags: 0

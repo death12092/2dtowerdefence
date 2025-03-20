@@ -1,5 +1,7 @@
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class turret : MonoBehaviour
 {
@@ -69,7 +71,7 @@ public class turret : MonoBehaviour
         Quaternion targetrotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         rotationpoint.rotation = targetrotation;
     }
-
+#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         
@@ -77,5 +79,5 @@ public class turret : MonoBehaviour
         Handles.DrawWireDisc(transform.position, transform.forward, targetingrange);
 
     }
-
+#endif
 }
